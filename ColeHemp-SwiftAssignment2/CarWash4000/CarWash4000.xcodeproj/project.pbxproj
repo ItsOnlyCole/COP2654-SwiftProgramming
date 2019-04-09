@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F4E3985225C201900767D2F /* CarWash4000.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3984225C201900767D2F /* CarWash4000.swift */; };
+		3F4E3987225C24B100767D2F /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3986225C24B100767D2F /* Customer.swift */; };
 		3F5A21182249A39400163FEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A21172249A39400163FEA /* AppDelegate.swift */; };
 		3F5A211A2249A39400163FEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A21192249A39400163FEA /* ViewController.swift */; };
 		3F5A211D2249A39400163FEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5A211B2249A39400163FEA /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F4E3984225C201900767D2F /* CarWash4000.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWash4000.swift; sourceTree = "<group>"; };
+		3F4E3986225C24B100767D2F /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		3F5A21142249A39400163FEA /* CarWash4000.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarWash4000.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5A21172249A39400163FEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F5A21192249A39400163FEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				3F5A21192249A39400163FEA /* ViewController.swift */,
 				3F5A211B2249A39400163FEA /* Main.storyboard */,
 				3F5A211E2249A39400163FEA /* Assets.xcassets */,
+				3F4E3986225C24B100767D2F /* Customer.swift */,
+				3F4E3984225C201900767D2F /* CarWash4000.swift */,
 				3F5A21202249A39400163FEA /* LaunchScreen.storyboard */,
 				3F5A21232249A39400163FEA /* Info.plist */,
 			);
@@ -260,7 +266,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F5A211A2249A39400163FEA /* ViewController.swift in Sources */,
+				3F4E3985225C201900767D2F /* CarWash4000.swift in Sources */,
 				3F5A21182249A39400163FEA /* AppDelegate.swift in Sources */,
+				3F4E3987225C24B100767D2F /* Customer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
