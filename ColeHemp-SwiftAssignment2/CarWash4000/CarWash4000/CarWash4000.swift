@@ -9,9 +9,9 @@
 import UIKit
 
 class CarWashController: UIViewController {
-    //Creates Customer on Load
+    //Creates Customer and Package on Load
     var customer = Customer()
-    
+    var package = Package()
     
     
     
