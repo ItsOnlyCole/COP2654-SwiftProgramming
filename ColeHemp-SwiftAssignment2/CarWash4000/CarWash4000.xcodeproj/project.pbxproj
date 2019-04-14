@@ -16,6 +16,7 @@
 		3F5A21222249A39400163FEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5A21202249A39400163FEA /* LaunchScreen.storyboard */; };
 		3F5A212D2249A39400163FEA /* CarWash4000Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A212C2249A39400163FEA /* CarWash4000Tests.swift */; };
 		3F5A21382249A39400163FEA /* CarWash4000UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A21372249A39400163FEA /* CarWash4000UITests.swift */; };
+		EE48C98E2263E3C400524994 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE48C98D2263E3C400524994 /* Package.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		3F5A21332249A39400163FEA /* CarWash4000UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarWash4000UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5A21372249A39400163FEA /* CarWash4000UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWash4000UITests.swift; sourceTree = "<group>"; };
 		3F5A21392249A39400163FEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE48C98D2263E3C400524994 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				3F5A211B2249A39400163FEA /* Main.storyboard */,
 				3F5A211E2249A39400163FEA /* Assets.xcassets */,
 				3F4E3986225C24B100767D2F /* Customer.swift */,
+				EE48C98D2263E3C400524994 /* Package.swift */,
 				3F4E3984225C201900767D2F /* CarWash4000.swift */,
 				3F5A21202249A39400163FEA /* LaunchScreen.storyboard */,
 				3F5A21232249A39400163FEA /* Info.plist */,
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F5A211A2249A39400163FEA /* ViewController.swift in Sources */,
+				EE48C98E2263E3C400524994 /* Package.swift in Sources */,
 				3F4E3985225C201900767D2F /* CarWash4000.swift in Sources */,
 				3F5A21182249A39400163FEA /* AppDelegate.swift in Sources */,
 				3F4E3987225C24B100767D2F /* Customer.swift in Sources */,
