@@ -46,6 +46,11 @@ class Package {
         specialtyCarSurcharge = specialtyCarSurchargeRequirements[carType]!
         specialtyCarSurchargePrice = specialtyCarSurchargePrices[carType]!
     }
+    func  setSpecialtyCarSurcharge(specialtyCarSurcharge: Bool, specialtyCarSurchargePrice: Double)
+    {
+        self.specialtyCarSurcharge = specialtyCarSurcharge
+        self.specialtyCarSurchargePrice = specialtyCarSurchargePrice
+    }
     func getName() -> String { return name }
     func getCost() -> Double { return cost }
     func getSoap() -> UIColor { return soap }

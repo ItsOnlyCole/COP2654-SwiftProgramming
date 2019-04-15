@@ -8,31 +8,30 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     var customer = Customer()
     var package = Package()
     var remainingWax: Int = 10
+    var numOfCarsWashed: Int = 0
     
     @IBOutlet weak var numOfCarsWashedLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var packageCostLabel: UILabel!
+    @IBOutlet weak var packageSelectionSlider: UISlider!
     @IBOutlet weak var soapColorLabel: UILabel!
     @IBOutlet weak var coatsOfWaxLabel: UILabel!
     @IBOutlet weak var numCoatsOfWaxLabel: UILabel!
     @IBOutlet weak var vehicleTypeLabel: UILabel!
     @IBOutlet weak var specialtyCarSurchargeLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var activationSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("App Started <3")
-        
-        //Sets package to basic package
-        package.setPackage(packageNumber: 0)
-        
-        updatePackageCostLabel(packageCostLabel)
-        updatePrice()
+        //Sets up the wash.
+        resetWash()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,15 +39,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func getNameChange(_ nameTextBox: UITextField)
+    @IBAction func getNameChange(_ sender: UITextField)
     {
-        customer.setName(name: nameTextBox.text!)
-        //print("\(nameTextBox.text!)")
+        customer.setName(name: nameTextField.text!)
     }
+    
     
     @IBAction func finalizeNameChange(_ sender: UITextField)
     {
-        welcomeLabel.text = "Welcome \(customer.getName)!"
+        welcomeLabel.text = "Welcome \(customer.getName())!"
     }
     
     @IBAction func updatePackage(_ sender: UISlider)
@@ -63,7 +62,11 @@ class ViewController: UIViewController {
         
     }
     
-    //Update Functions that activate when package is changed.
+    //Update Functions
+    func updateNumOfCarsWashed(_ numOfCarsWashedLabel: UILabel)
+    {
+        numOfCarsWashedLabel.text = "\(numOfCarsWashed)"
+    }
     func updatePackageCostLabel(_ packageCostLabel: UILabel)
     {
         packageCostLabel.text = "\(package.getName()):$\(package.getCost())"
@@ -78,8 +81,6 @@ class ViewController: UIViewController {
         coatsOfWaxLabel.isHidden = package.checkForWax(remainingWax: remainingWax)
         numCoatsOfWaxLabel.isHidden = package.checkForWax(remainingWax: remainingWax)
     }
-    
-    //Update vehicleType & Surcharge functions
     func updateVehicleTypeLabel(_ vehicleTypeLabel: UILabel)
     {
         vehicleTypeLabel.text = customer.getCarType()
@@ -101,6 +102,9 @@ class ViewController: UIViewController {
             specialtyCarSurchargeLabel.isHidden = true
         }
     }
+    
+    
+    
     @IBAction func setVehicleToSedan(_ sender: UIButton)
     {
         customer.setCarType(carType: "Sedan")
@@ -141,10 +145,48 @@ class ViewController: UIViewController {
     }
     func resetWash()
     {
+        //Resets Customer Name
         customer.setName(name: "")
+        nameTextField.text = ""
+        nameTextField.placeholder = "Name"
+        welcomeLabel.text = "Welcome!"
         
+        //Resets Package info
+        packageSelectionSlider.value = 0.0
+        package.setPackage(packageNumber: 0)
+        customer.setPackage(package: package.getName())
+        updatePackageCostLabel(packageCostLabel)
+        updateSoap(soapColorLabel)
+        updateCoatsOfWax(numCoatsOfWaxLabel, coatsOfWaxLabel)
         
+        //Resets Vehicle Info
+        customer.setCarType(carType: "")
+        vehicleTypeLabel.text = "Vehicle type"
+        vehicleTypeLabel.isHidden=true
+        package.setSpecialtyCarSurcharge(specialtyCarSurcharge: false, specialtyCarSurchargePrice: 0.00)
+        specialtyCarSurchargeLabel.isHidden = true
+        
+        //Updates Price
+        updatePrice()
     }
+    @IBAction func activateWash(_ sender: UISwitch)
+    {
+        //Checks if everything is filled out.
+        if (customer.getName() != "" && customer.getPackage() != "" && customer.getCarType() != "")
+        {
+            //Add Alert
+            let alert = UIAlertController(title: "Wash Completed", message: "Your car has been washed.\nHave a good day!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            resetWash()
+            updateNumOfCarsWashed(numOfCarsWashedLabel)
+            activationSwitch.isOn = false
+        }
+        
+
+    }
+    
+    
     
     
     

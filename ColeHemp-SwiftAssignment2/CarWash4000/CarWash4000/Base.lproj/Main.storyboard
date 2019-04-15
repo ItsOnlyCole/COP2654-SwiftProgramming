@@ -54,7 +54,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="finalizeNameChange:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="7Er-2p-wKj"/>
-                                    <action selector="getNameChange:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="tkr-2B-ygQ"/>
+                                    <action selector="getNameChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="tTp-7c-vLK"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUy-6V-gVG">
@@ -157,10 +157,6 @@
                                     <action selector="setVehicleToTruck:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hx8-ZN-G8h"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ix6-61-Rd5">
-                                <rect key="frame" x="275" y="621" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start CarWash4000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FU6-oi-SlK">
                                 <rect key="frame" x="33" y="626" width="195" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -189,15 +185,25 @@
                                     <action selector="updatePackage:" destination="BYZ-38-t0r" eventType="valueChanged" id="bPz-7Q-WR0"/>
                                 </connections>
                             </slider>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ix6-61-Rd5">
+                                <rect key="frame" x="275" y="621" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="activateWash:" destination="BYZ-38-t0r" eventType="valueChanged" id="pJj-xg-mPD"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activationSwitch" destination="Ix6-61-Rd5" id="4MJ-im-3il"/>
                         <outlet property="coatsOfWaxLabel" destination="Jdx-lC-RK2" id="VAN-WQ-B0y"/>
+                        <outlet property="nameTextField" destination="gal-Vy-LMY" id="2we-aM-95R"/>
                         <outlet property="numCoatsOfWaxLabel" destination="l33-TC-Qqt" id="9TN-zx-s5x"/>
                         <outlet property="numOfCarsWashedLabel" destination="VLa-T5-ddP" id="Y1h-te-2FE"/>
                         <outlet property="packageCostLabel" destination="Pjq-mQ-5F6" id="GEk-3h-avQ"/>
+                        <outlet property="packageSelectionSlider" destination="XAT-iL-npt" id="RvS-09-wJH"/>
                         <outlet property="soapColorLabel" destination="xhy-mK-8pN" id="HcR-Ib-4Jg"/>
                         <outlet property="specialtyCarSurchargeLabel" destination="CA9-yY-39s" id="TRS-3b-M2Y"/>
                         <outlet property="totalPriceLabel" destination="c1G-so-LCj" id="PSy-Zt-Mxf"/>
