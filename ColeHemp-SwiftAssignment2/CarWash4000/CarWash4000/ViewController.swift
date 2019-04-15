@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
     var customer = Customer()
     var package = Package()
-    var remainingWax: Int = 0
+    var remainingWax: Int = 10
     var numOfCarsWashed: Int = 0
     
     @IBOutlet weak var numOfCarsWashedLabel: UILabel!
@@ -65,6 +65,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //Update Functions
     func updateNumOfCarsWashed(_ numOfCarsWashedLabel: UILabel)
     {
+        numOfCarsWashed = numOfCarsWashed + 1
         numOfCarsWashedLabel.text = "\(numOfCarsWashed)"
     }
     func updatePackageCostLabel(_ packageCostLabel: UILabel)
