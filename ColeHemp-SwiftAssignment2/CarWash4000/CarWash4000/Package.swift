@@ -71,7 +71,6 @@ class Package {
             //Not enough Wax left for package
             //Removes $2 from price for lack of wax
             cost = cost - (Double)(2 * coatsOfWax)
-            //Add Alert
             return true
         }
         else

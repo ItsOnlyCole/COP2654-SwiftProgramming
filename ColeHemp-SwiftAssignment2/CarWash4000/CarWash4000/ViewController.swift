@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
     var customer = Customer()
     var package = Package()
-    var remainingWax: Int = 10
+    var remainingWax: Int = 0
     var numOfCarsWashed: Int = 0
     
     @IBOutlet weak var numOfCarsWashedLabel: UILabel!
@@ -80,6 +80,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         numCoatsOfWaxLabel.text = "\(package.getCoatsOfWax())"
         coatsOfWaxLabel.isHidden = package.checkForWax(remainingWax: remainingWax)
         numCoatsOfWaxLabel.isHidden = package.checkForWax(remainingWax: remainingWax)
+        if(package.getCoatsOfWax() > remainingWax)
+        {
+            let alert = UIAlertController(title: "Out of Wax!", message: "Sorry for the inconvience.\nWe usually have \(package.getCoatsOfWax()) coats of wax for this package, but we're out of wax. As compensation, you'll recieve a discount on your package price.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
     }
     func updateVehicleTypeLabel(_ vehicleTypeLabel: UILabel)
     {
@@ -177,12 +183,42 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //Add Alert
             let alert = UIAlertController(title: "Wash Completed", message: "Your car has been washed.\nHave a good day!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+
+            sleep(2)
             self.present(alert, animated: true)
             resetWash()
             updateNumOfCarsWashed(numOfCarsWashedLabel)
             activationSwitch.isOn = false
         }
-        
+        else if (customer.getName() == "")
+        {
+            let alert = UIAlertController(title: "Invalid Name!", message: "Please input a name.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            activationSwitch.isOn = false
+        }
+        else if (customer.getCarType() == "")
+        {
+            let alert = UIAlertController(title: "Invalid Car!", message: "Please select the type of car you drive.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            activationSwitch.isOn = false
+        }
+        else if (customer.getPackage() == "")
+        {
+            let alert = UIAlertController(title: "Invalid Package!", message: "Please select the type of car wash package you want.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            activationSwitch.isOn = false
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Error!", message: "An unknown error has occured.\nPlease try again.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            resetWash()
+            activationSwitch.isOn = false
+        }
 
     }
     
