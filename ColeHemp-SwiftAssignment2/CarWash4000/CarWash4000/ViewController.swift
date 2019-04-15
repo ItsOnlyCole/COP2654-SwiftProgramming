@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     var customer = Customer()
     var package = Package()
+    var remainingWax: Int = 10
+    
     @IBOutlet weak var numOfCarsWashedLabel: UILabel!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var packageCostLabel: UILabel!
@@ -28,7 +30,9 @@ class ViewController: UIViewController {
         
         //Sets package to basic package
         package.setPackage(packageNumber: 0)
+        
         updatePackageCostLabel(packageCostLabel)
+        updatePrice()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,11 +55,15 @@ class ViewController: UIViewController {
     {
         let packageNumber:Int = (Int)(sender.value)
         package.setPackage(packageNumber: packageNumber)
+        customer.setPackage(package: package.getName())
         updatePackageCostLabel(packageCostLabel)
+        updateSoap(soapColorLabel)
+        updateCoatsOfWax(numCoatsOfWaxLabel, coatsOfWaxLabel)
+        updatePrice()
         
     }
     
-    
+    //Update Functions that activate when package is changed.
     func updatePackageCostLabel(_ packageCostLabel: UILabel)
     {
         packageCostLabel.text = "\(package.getName()):$\(package.getCost())"
@@ -64,6 +72,83 @@ class ViewController: UIViewController {
     {
         soapColorLabel.backgroundColor = package.getSoap()
     }
+    func updateCoatsOfWax(_ numCoatsOfWaxLabel: UILabel,_ coatsOfWaxLabel: UILabel)
+    {
+        numCoatsOfWaxLabel.text = "\(package.getCoatsOfWax())"
+        coatsOfWaxLabel.isHidden = package.checkForWax(remainingWax: remainingWax)
+        numCoatsOfWaxLabel.isHidden = package.checkForWax(remainingWax: remainingWax)
+    }
+    
+    //Update vehicleType & Surcharge functions
+    func updateVehicleTypeLabel(_ vehicleTypeLabel: UILabel)
+    {
+        vehicleTypeLabel.text = customer.getCarType()
+        if(vehicleTypeLabel.text != "Vehicle type")
+        {
+            vehicleTypeLabel.isHidden=false
+        }
+    }
+    func setSpecialtyCarSurcharge(_ specialtyCarSurchargeLabel: UILabel)
+    {
+        package.setSpecialtyCarSurcharge(carType: customer.getCarType())
+        if(package.getSpecialtyCarSurcharge() == true)
+        {
+            specialtyCarSurchargeLabel.text = "Specilty Vehicle Surcharge: $\(package.getSpecialtyCarSurchargePrice())"
+            specialtyCarSurchargeLabel.isHidden = false
+        }
+        else
+        {
+            specialtyCarSurchargeLabel.isHidden = true
+        }
+    }
+    @IBAction func setVehicleToSedan(_ sender: UIButton)
+    {
+        customer.setCarType(carType: "Sedan")
+        updateVehicleTypeLabel(vehicleTypeLabel)
+        setSpecialtyCarSurcharge(specialtyCarSurchargeLabel)
+        updatePrice()
+    }
+    @IBAction func setVehicleToSports(_ sender: UIButton)
+    {
+        customer.setCarType(carType: "Sports")
+        updateVehicleTypeLabel(vehicleTypeLabel)
+        setSpecialtyCarSurcharge(specialtyCarSurchargeLabel)
+        updatePrice()
+    }
+    @IBAction func setVehicleToSUV(_ sender: UIButton)
+    {
+        customer.setCarType(carType: "SUV")
+        updateVehicleTypeLabel(vehicleTypeLabel)
+        setSpecialtyCarSurcharge(specialtyCarSurchargeLabel)
+        updatePrice()
+    }
+    @IBAction func setVehicleToTruck(_ sender: UIButton)
+    {
+        customer.setCarType(carType: "Truck")
+        updateVehicleTypeLabel(vehicleTypeLabel)
+        setSpecialtyCarSurcharge(specialtyCarSurchargeLabel)
+        updatePrice()
+    }
+    
+    
+    
+    //Misc Functions
+    func updatePrice()
+    {
+        let price: Double = package.getCost() + package.getSpecialtyCarSurchargePrice()
+        customer.setTotalPrice(totalPrice: price)
+        totalPriceLabel.text = "$\(customer.getTotalPrice())"
+    }
+    func resetWash()
+    {
+        customer.setName(name: "")
+        
+        
+    }
+    
+    
+    
+    
 
 }
 

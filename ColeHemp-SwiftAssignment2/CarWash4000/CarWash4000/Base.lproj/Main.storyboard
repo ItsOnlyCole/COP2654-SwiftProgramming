@@ -126,24 +126,36 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Sedan"/>
+                                <connections>
+                                    <action selector="setVehicleToSedan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fd0-ax-KWi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbe-RN-2yz">
                                 <rect key="frame" x="215" y="462" width="91" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Sports"/>
+                                <connections>
+                                    <action selector="setVehicleToSports:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hlk-DW-m0c"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7P-RM-o6a">
                                 <rect key="frame" x="69" y="509" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="SUV"/>
+                                <connections>
+                                    <action selector="setVehicleToSUV:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gYm-Uk-NNG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGX-td-Ex0">
                                 <rect key="frame" x="215" y="509" width="84" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Truck"/>
+                                <connections>
+                                    <action selector="setVehicleToTruck:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hx8-ZN-G8h"/>
+                                </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ix6-61-Rd5">
                                 <rect key="frame" x="275" y="621" width="49" height="31"/>
